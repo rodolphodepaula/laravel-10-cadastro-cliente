@@ -30,6 +30,8 @@ Route::middleware('auth')->group(function () {
 
     //Users
     Route::get('/users-index', [UserController::class, 'index'])->name('user.index');
+    Route::get('/users-edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/edit-update/{id}', [UserController::class, 'update'])->name('user.update');
 });
 
 require __DIR__.'/auth.php';

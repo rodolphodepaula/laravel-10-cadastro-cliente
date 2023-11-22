@@ -31,7 +31,7 @@
                         @foreach ($users as $user)
                             <tr class="hover:bg-gray-100">
                                 <td class="text-center">
-                                    icone
+                                    {{ $user->level }}
                                     {{-- @if($user->level == 'admin')
                                     Administrador
                                     @elseif($user->level == 'moderator')
@@ -44,7 +44,7 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->created_at }}</td>
                                 <td class="text-center">
-                                    Editar
+                                    <a href="{{ route('user.edit', $user->id) }}">Editar</a>
                                 </td>
                             </tr>
                         @endforeach

@@ -14,4 +14,17 @@ class UserController extends Controller
             'users' => User::orderBy('name')->paginate('5')
         ]);
     }
+
+    public function edit(int $id)
+    {
+        return view('users.edit', [
+            'user' => User::findOrFail($id),
+        ]);
+    }
+
+    public function update(Request $request)
+    {
+        dd('update');
+    }
+
 }
