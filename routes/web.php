@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
     //Users
     Route::get('/users-index', [UserController::class, 'index'])->name('user.index');
     Route::get('/users-edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+    //->middleware('can:level');
+
     Route::put('/edit-update/{id}', [UserController::class, 'update'])->name('user.update');
 });
 

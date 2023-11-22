@@ -24,7 +24,9 @@
                             <th class="p-4">Nome</th>
                             <th>E-mail</th>
                             <th>Data Cadastro</th>
-                            <th class="text-center">Ações</th>
+                            @can('level')
+                                <th class="text-center">Ações</th>
+                            @endcan
                         </tr>
                     </thead>
                     <tbody>
@@ -32,9 +34,7 @@
                             <tr class="hover:bg-gray-100">
                                 <td class="text-center">
                                     @if ($user->level == 'admin')
-                                        <i class="fa-solid fa-user-tie mr-2"></i> Administrador
-                                    @elseif ($user->level == 'user')
-                                    <i class="fa-solid fa-user mr-2"></i>Colaborador
+                                        <i class="fa-solid fa-user-tie mr-2"></i>
                                     @endif
                                     {{-- @if($user->level == 'admin')
                                     Administrador
@@ -47,9 +47,12 @@
                                 <td class="p4">{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->created_at }}</td>
-                                <td class="text-center">
-                                    <a href="{{ route('user.edit', $user->id) }}">Editar</a>
-                                </td>
+                                @can('level')
+                                    <td class="text-center">
+                                        <a href="{{ route('user.edit', $user->id) }}">Editar</a>
+                                    </td>
+                                @endcan
+
                             </tr>
                         @endforeach
                     </tbody>

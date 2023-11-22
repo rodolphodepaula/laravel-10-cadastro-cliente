@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:level')->only('edit');
+    }
     public function index()
     {
         return view('users.index',[
