@@ -31,7 +31,11 @@
                         @foreach ($users as $user)
                             <tr class="hover:bg-gray-100">
                                 <td class="text-center">
-                                    {{ $user->level }}
+                                    @if ($user->level == 'admin')
+                                        <i class="fa-solid fa-user-tie mr-2"></i> Administrador
+                                    @elseif ($user->level == 'user')
+                                    <i class="fa-solid fa-user mr-2"></i>Colaborador
+                                    @endif
                                     {{-- @if($user->level == 'admin')
                                     Administrador
                                     @elseif($user->level == 'moderator')

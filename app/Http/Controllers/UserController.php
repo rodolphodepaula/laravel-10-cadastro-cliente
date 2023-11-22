@@ -24,7 +24,11 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
-        dd('update');
+        User::findOrFail($request->id)->update($request->all());
+
+        return view('users.index',[
+            'users' => User::orderBy('name')->paginate('5')
+        ]);
     }
 
 }
