@@ -11,6 +11,10 @@
               <div class="p-6 text-gray-900 dark:text-gray-100">
                   <p class="mb-4">Olá <strong>{{ Auth::user()->name }}</strong></p>
 
+                  @if (session('msg'))
+                  <p class="bg-blue-500 p-2 rounded text-center text-white">{{ session('msg') }}</p>
+                  @endif
+
                   <form action="{{ route('client.store') }}" method="post">
                     @csrf
                     <fieldset class="border-2 rounded p-6">

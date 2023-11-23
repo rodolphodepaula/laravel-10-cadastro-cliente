@@ -20,7 +20,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('clients.create');
     }
 
     /**
@@ -28,7 +28,19 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $client = new Client();
+        $client->user_id       = $request->user_id;
+        $client->name          = $request->name;
+        $client->email         = $request->email;
+        $client->phone         = $request->phone;
+        $client->company       = $request->company;
+        $client->company_phone = $request->company_phone;
+
+        $client->save();
+
+        return redirect()
+            ->route('client.create')
+            ->with('msg', 'Cliente cadastrado com sucesso!');
     }
 
     /**
