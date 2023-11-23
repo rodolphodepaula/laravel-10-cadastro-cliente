@@ -11,9 +11,11 @@
               <div class="p-6 text-gray-900 dark:text-gray-100">
                   <p class="mb-4">Olá <strong>{{ Auth::user()->name }}</strong></p>
 
-                  <p class="mb-4 p-6">
-                    <a href="{{ route('client.index') }}" class="bg-blue-500 text-white rounded p-2">Clientes</a>
-                  </p>
+                  @can('level')
+                    <p class="mb-4 p-6">
+                        <a href="{{ route('client.index') }}" class="bg-blue-500 text-white rounded p-2">Clientes</a>
+                    </p>
+                  @endcan
 
                   @if (session('msg'))
                   <p class="bg-blue-500 p-2 rounded text-center text-white">{{ session('msg') }}</p>

@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:level')->only('index');
+    }
     /**
      * Display a listing of the resource.
      */
