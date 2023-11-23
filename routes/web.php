@@ -3,6 +3,8 @@
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Models\Client;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +23,10 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard', [
+        'clients' => Client::all(),
+        'users' => User::all()
+    ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
