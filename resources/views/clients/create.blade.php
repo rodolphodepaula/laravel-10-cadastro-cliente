@@ -17,6 +17,10 @@
                     </p>
                   @endcan
 
+                  <p class="mb-4 p-6">
+                    <a href="{{ route('client.my',  Auth::user()->id) }}" class="bg-blue-500 text-white rounded p-2">Meus Clientes</a>
+                    </p>
+
                   @if (session('msg'))
                   <p class="bg-blue-500 p-2 rounded text-center text-white">{{ session('msg') }}</p>
                   @endif

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -28,6 +29,16 @@ class ClientController extends Controller
     public function create()
     {
         return view('clients.create');
+    }
+
+    public function myClients (int $id)
+    {
+        $user = User::where('id', $id)->first();
+        $clients = $user->clients()->paginate(5);
+
+        return view('clients.clients-my', [
+            'clients' => $clients
+        ]);
     }
 
     /**
