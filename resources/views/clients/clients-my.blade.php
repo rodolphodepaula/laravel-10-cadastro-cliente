@@ -24,7 +24,7 @@
                       <th class="p-2">Nome</th>
                       <th>Email</th>
                       <th>Telefone</th>
-                      <th>Usuário</th>
+                      <th>Ações</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -33,7 +33,7 @@
                         <td class="p-2">{{ $client->name }}</td>
                         <td class="p-2">{{ $client->email }}</td>
                         <td class="p-2">{{ $client->phone }}</td>
-                        <td class="p-2">{{ $client->user->name }}</td>
+                        <td class="p-2"><a href="{{ route('client.show', $client->id) }}"><i class="fa-solid fa-circle-info"></i></a></td>
                       </tr>
                     @endforeach
                   </tbody>
