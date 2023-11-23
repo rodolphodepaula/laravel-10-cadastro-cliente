@@ -15,7 +15,7 @@
                   <p>
                     <a href="{{ route('client.my', Auth::user()->id) }}" class="bg-blue-500 text-white rounded p-2">Meus clientes</a>
                     <a href="{{ route('client.edit', $client->id) }}" class="bg-gray-500 text-white rounded p-2">Editar</a>
-                    <a href="#!" class="bg-red-500 text-white rounded p-2">Deletar</a>
+                    <a href="{{ route('delete.confirm', $client->id) }}" class="bg-red-500 text-white rounded p-2">Deletar</a>
                   </p>
               </div>
 

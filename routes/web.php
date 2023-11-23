@@ -43,6 +43,7 @@ Route::middleware('auth')->group(function () {
 
     //Meus clients
     Route::get('/clients-my/{id}', [ClientController::class, 'myClients'])->name('client.my');
+    Route::get('/delete-confirm/{id}', [ClientController::class, 'deleteConfirm'])->name('delete.confirm');
 });
 
 require __DIR__.'/auth.php';
