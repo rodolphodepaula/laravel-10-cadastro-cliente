@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,11 @@ Route::middleware('auth')->group(function () {
     //->middleware('can:level');
 
     Route::put('/edit-update/{id}', [UserController::class, 'update'])->name('user.update');
+
+    //Clients
+    Route::resources([
+        'client' => ClientController::class
+    ]);
 });
 
 require __DIR__.'/auth.php';
